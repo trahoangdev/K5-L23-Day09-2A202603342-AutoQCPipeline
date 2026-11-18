@@ -1,0 +1,72 @@
+check,severity,code,image,line,message,extra
+missing_labels,warn,EMPTY_LABEL,img_0013,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0097,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0129,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0192,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+label_format,warn,BOX_HUGE,img_0018,1,diện tích 97.0% ảnh > 95%,
+label_format,warn,BOX_TINY,img_0026,6,cạnh ngắn 11.4 px < 12 px,
+label_format,warn,BOX_TINY,img_0051,5,cạnh ngắn 8.9 px < 12 px,
+label_format,warn,BOX_TINY,img_0069,2,cạnh ngắn 11.2 px < 12 px,
+label_format,warn,BOX_HUGE,img_0128,1,diện tích 98.8% ảnh > 95%,
+label_format,warn,BOX_TINY,img_0161,2,cạnh ngắn 10.3 px < 12 px,
+label_format,warn,BOX_TINY,img_0161,3,cạnh ngắn 11.4 px < 12 px,
+label_format,warn,BOX_TINY,img_0161,4,cạnh ngắn 11.9 px < 12 px,
+label_format,warn,BOX_TINY,img_0183,11,cạnh ngắn 11.8 px < 12 px,
+label_format,warn,BOX_HUGE,img_0196,1,diện tích 98.4% ảnh > 95%,
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0014,2,box person không khớp dự đoán nào,"{""iou"": 0.1450117456567434}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0015,,box person cùng lớp nhưng IoU chỉ 0.343,"{""conf"": 0.8941, ""class_id"": 1, ""box"": [0.215537, 0.616623, 0.26626, 0.746805], ""iou"": 0.3434455934432383}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0018,,box person cùng lớp nhưng IoU chỉ 0.447,"{""conf"": 0.7195, ""class_id"": 1, ""box"": [0.626113, 0.314365, 0.700498, 0.625739], ""iou"": 0.4470426447819693}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0021,,box person cùng lớp nhưng IoU chỉ 0.486,"{""conf"": 0.8362, ""class_id"": 1, ""box"": [0.961937, 0.580826, 0.075359, 0.81735], ""iou"": 0.4859935892263159}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0022,2,box person không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_MISSING,img_0032,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.608, ""class_id"": 1, ""box"": [0.329966, 0.541487, 0.024829, 0.090811]}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0035,2,box person không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0036,,box person cùng lớp nhưng IoU chỉ 0.427,"{""conf"": 0.8733, ""class_id"": 1, ""box"": [0.250974, 0.504127, 0.088149, 0.448976], ""iou"": 0.42652477076992373}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0038,,box person cùng lớp nhưng IoU chỉ 0.397,"{""conf"": 0.9212, ""class_id"": 1, ""box"": [0.578935, 0.45058, 0.087115, 0.313019], ""iou"": 0.39748903279274156}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0045,,box person cùng lớp nhưng IoU chỉ 0.335,"{""conf"": 0.7519, ""class_id"": 1, ""box"": [0.240105, 0.524833, 0.329583, 0.926252], ""iou"": 0.33476178349319957}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0046,,box person cùng lớp nhưng IoU chỉ 0.382,"{""conf"": 0.8928, ""class_id"": 1, ""box"": [0.596619, 0.139319, 0.174645, 0.277149], ""iou"": 0.3823233906495968}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0054,,box car cùng lớp nhưng IoU chỉ 0.379,"{""conf"": 0.7403, ""class_id"": 0, ""box"": [0.320302, 0.502885, 0.095752, 0.0428], ""iou"": 0.37880261832775625}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0058,,box person cùng lớp nhưng IoU chỉ 0.453,"{""conf"": 0.7285, ""class_id"": 1, ""box"": [0.035671, 0.346441, 0.070973, 0.689851], ""iou"": 0.4534370760405646}"
+second_opinion,warn,POSSIBLE_MISSING,img_0062,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.6374, ""class_id"": 1, ""box"": [0.531013, 0.855219, 0.033827, 0.112452]}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0064,,box person cùng lớp nhưng IoU chỉ 0.450,"{""conf"": 0.9147, ""class_id"": 1, ""box"": [0.194519, 0.55358, 0.094496, 0.299889], ""iou"": 0.45010497657783627}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0068,8,box person không khớp dự đoán nào,"{""iou"": 0.19889536171485311}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0069,2,box person không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0075,6,box person không khớp dự đoán nào,"{""iou"": 0.10672083058763539}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0077,,box person cùng lớp nhưng IoU chỉ 0.402,"{""conf"": 0.7352, ""class_id"": 1, ""box"": [0.941312, 0.835155, 0.059083, 0.109006], ""iou"": 0.4016279290671218}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0078,,model dự đoán car tại box khác lớp (IoU 0.919),"{""conf"": 0.8287, ""class_id"": 0, ""box"": [0.952641, 0.6676, 0.09387, 0.071116], ""iou"": 0.9189310218686991}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0082,,box person cùng lớp nhưng IoU chỉ 0.483,"{""conf"": 0.8085, ""class_id"": 1, ""box"": [0.43678, 0.46235, 0.829302, 0.883377], ""iou"": 0.4834327463044831}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0083,,model dự đoán car tại box khác lớp (IoU 0.974),"{""conf"": 0.6948, ""class_id"": 0, ""box"": [0.283814, 0.569314, 0.061639, 0.058617], ""iou"": 0.9738458397765963}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0090,,box person cùng lớp nhưng IoU chỉ 0.463,"{""conf"": 0.7153, ""class_id"": 1, ""box"": [0.39189, 0.506717, 0.194144, 0.166438], ""iou"": 0.4628350771458936}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0091,7,box truck không khớp dự đoán nào,"{""iou"": 0.25691703662875975}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0093,3,box person không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0095,6,box person không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0099,,box person cùng lớp nhưng IoU chỉ 0.302,"{""conf"": 0.6892, ""class_id"": 1, ""box"": [0.308609, 0.451082, 0.116516, 0.503369], ""iou"": 0.302285320050106}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0111,2,box bus không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0119,,box person cùng lớp nhưng IoU chỉ 0.408,"{""conf"": 0.706, ""class_id"": 1, ""box"": [0.280998, 0.267061, 0.108118, 0.142811], ""iou"": 0.40835910199990577}"
+second_opinion,warn,POSSIBLE_MISSING,img_0121,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.7641, ""class_id"": 1, ""box"": [0.734433, 0.702752, 0.106897, 0.560862]}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0124,8,box person không khớp dự đoán nào,"{""iou"": 0.03620175556397309}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0125,,box person cùng lớp nhưng IoU chỉ 0.421,"{""conf"": 0.8328, ""class_id"": 1, ""box"": [0.675257, 0.377492, 0.132328, 0.188845], ""iou"": 0.42099341975298876}"
+second_opinion,warn,POSSIBLE_MISSING,img_0126,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.7174, ""class_id"": 1, ""box"": [0.021944, 0.926077, 0.043519, 0.146584]}"
+second_opinion,warn,POSSIBLE_MISSING,img_0127,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.6843, ""class_id"": 1, ""box"": [0.015784, 0.541893, 0.031262, 0.195812]}"
+second_opinion,warn,POSSIBLE_MISSING,img_0127,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.6298, ""class_id"": 1, ""box"": [0.040801, 0.776006, 0.081184, 0.299765]}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0131,11,box person không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0134,5,box person không khớp dự đoán nào,"{""iou"": 0.04389868101983441}"
+second_opinion,warn,POSSIBLE_MISSING,img_0135,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.7297, ""class_id"": 1, ""box"": [0.0164, 0.416414, 0.0328, 0.181841]}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0142,,box person cùng lớp nhưng IoU chỉ 0.428,"{""conf"": 0.658, ""class_id"": 1, ""box"": [0.912395, 0.380035, 0.167517, 0.409095], ""iou"": 0.42779459598869807}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0149,3,box car không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0150,3,box person không khớp dự đoán nào,"{""iou"": 0.23162072486516988}"
+second_opinion,warn,POSSIBLE_MISSING,img_0159,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.6658, ""class_id"": 1, ""box"": [0.901882, 0.021578, 0.116721, 0.042983]}"
+second_opinion,warn,POSSIBLE_MISSING,img_0160,,model thấy truck nhưng chưa có box khớp,"{""conf"": 0.7768, ""class_id"": 2, ""box"": [0.960141, 0.506706, 0.077853, 0.078912]}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0175,,box person cùng lớp nhưng IoU chỉ 0.422,"{""conf"": 0.8997, ""class_id"": 1, ""box"": [0.749351, 0.540758, 0.146679, 0.356574], ""iou"": 0.4215077681105207}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0177,2,box bus không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0180,5,box bus không khớp dự đoán nào,"{""iou"": 0.0}"
+second_opinion,warn,POSSIBLE_MISSING,img_0183,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.8104, ""class_id"": 1, ""box"": [0.355372, 0.516748, 0.02207, 0.102309]}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0189,4,box car không khớp dự đoán nào,"{""iou"": 0.00916243131024922}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0191,1,box car không khớp dự đoán nào,"{""iou"": 0.25644187130435536}"
+second_opinion,warn,POSSIBLE_MISSING,img_0199,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.7376, ""class_id"": 1, ""box"": [0.560118, 0.176273, 0.029632, 0.134646]}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0200,,box person cùng lớp nhưng IoU chỉ 0.434,"{""conf"": 0.6911, ""class_id"": 1, ""box"": [0.631306, 0.387603, 0.071828, 0.238649], ""iou"": 0.43446286020480024}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0206,1,box person không khớp dự đoán nào,"{""iou"": 0.10827808564215993}"
+second_opinion,warn,POSSIBLE_MISSING,img_0210,,model thấy car nhưng chưa có box khớp,"{""conf"": 0.6665, ""class_id"": 0, ""box"": [0.316637, 0.677223, 0.165956, 0.052221]}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0212,,box person cùng lớp nhưng IoU chỉ 0.329,"{""conf"": 0.6733, ""class_id"": 1, ""box"": [0.266746, 0.567931, 0.097755, 0.484896], ""iou"": 0.3285078952560335}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0212,4,box person không khớp dự đoán nào,"{""iou"": 0.15014265209152355}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0220,,model dự đoán car tại box khác lớp (IoU 0.911),"{""conf"": 0.7077, ""class_id"": 0, ""box"": [0.324958, 0.279525, 0.049738, 0.06966], ""iou"": 0.9106244643380735}"
+second_opinion,warn,POSSIBLE_MISSING,img_0220,,model thấy person nhưng chưa có box khớp,"{""conf"": 0.625, ""class_id"": 1, ""box"": [0.618036, 0.296626, 0.045618, 0.061266]}"
