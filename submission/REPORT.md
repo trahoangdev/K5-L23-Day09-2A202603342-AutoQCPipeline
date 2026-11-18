@@ -14,7 +14,6 @@ V1 gồm 19 dòng ở cửa vào trên 224 ảnh và 189 dòng QC trên 205 ản
 | `BAD_SIZE` | 3 ảnh | Máy | Loại ảnh dưới chuẩn kích thước. |
 | `DUP_IMAGE_EXACT` | 8 ảnh | Máy | Loại ảnh trùng từng byte. |
 | `DUP_IMAGE_NEAR` | 2 ảnh | Máy | Loại ảnh gần trùng theo ngưỡng pHash. |
-| `LEAK_TEST` | 4 ảnh | Máy | Loại ảnh bị gắn cờ trùng với ảnh trong test. |
 | `BAD_FORMAT` | 3 dòng | Máy | Xóa dòng sai định dạng. |
 | `BAD_CLASS_ID` | 6 dòng | Máy | Xóa dòng có ID ngoài bảng lớp. |
 | `BOX_ZERO` | 4 dòng | Máy | Xóa box có kích thước không dương. |
@@ -59,6 +58,6 @@ Chưa chạy. Phần thực hiện tập trung vào QC và kiểm lại gate. M�
 
 Giữ **Hold**. Với 205 ảnh, Release cần tiếp tục duy trì 0 lỗi bắt buộc và còn tối đa 20 ảnh có cảnh báo chưa duyệt. Nếu số ảnh và các cờ khác giữ nguyên, cần xử lý hoặc duyệt thêm ít nhất **18 trong 38 ảnh** đang có cờ.
 
-- **Prompt chính.** Tiếp tục các bước 2–5 theo đề. Đầu vào là nhãn YOLO và dự đoán cache. Dùng quy tắc trong docstring và ngưỡng trong `cfg` để sinh `Issue`, ghi thay đổi và quyết định gate. Chỉ sửa nhãn trên bản làm việc.
+- **Prompt chính.** Đầu vào là nhãn YOLO và dự đoán cache. Dùng quy tắc trong docstring và ngưỡng trong `cfg` để sinh `Issue`, ghi thay đổi và quyết định gate. Chỉ sửa nhãn trên bản làm việc.
 - **Kiểm code AI.** Chạy 79 test của repo, thêm một phép thử tạm cho ID vô hạn, mép đúng ngưỡng và giữ số dòng gốc, rồi đo trên tập lỗi chèn và chạy lại pipeline.
 - **Một lần AI sai.** Bản đầu dùng tham số `newline` của `Path.write_text`, không phù hợp Python 3.9. Đã đổi sang `Path.open` khi ghi file.
