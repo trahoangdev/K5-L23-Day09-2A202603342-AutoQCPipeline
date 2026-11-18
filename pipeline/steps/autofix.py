@@ -27,13 +27,109 @@ Bẫy cần nghĩ tới (có test cho từng cái)
 
 Gợi ý: `yaml.safe_load / safe_dump`.
 """
-from collections import defaultdict  # noqa: F401
+from collections import defaultdict
 
-import yaml  # noqa: F401
+import yaml
 
-from ..common import ERROR, parse_yolo_line  # noqa: F401
+from ..common import ERROR, parse_yolo_line
+
+
+DROP_CODES = {"BAD_FORMAT", "BAD_CLASS_ID", "BOX_ZERO", "DUP_BOX"}
+REMOVE_CODES = {"LEAK_TEST", "CORRUPT_IMAGE", "BAD_SIZE"}
+
+
+def _clip_box(text):
+    try:
+        class_id, cx, cy, width, height = parse_yolo_line(text)
+    except (ValueError, OverflowError):
+        return None
+    left = max(0.0, cx - width / 2)
+    top = max(0.0, cy - height / 2)
+    right = min(1.0, cx + width / 2)
+    bottom = min(1.0, cy + height / 2)
+    if right <= left or bottom <= top:
+        return None
+    box = ((left + right) / 2, (top + bottom) / 2, right - left, bottom - top)
+    return f"{class_id} " + " ".join(f"{value:.12g}" for value in box)
+
+
+def _fix_label(path, edits):
+    if not path.is_file():
+        return []
+    lines = path.read_text(encoding="utf-8", errors="replace").splitlines(keepends=True)
+    kept, fixes = [], []
+    for line, original in enumerate(lines, 1):
+        action = edits.get(line)
+        if action is None or not original.strip():
+            kept.append(original)
+            continue
+        before = original.rstrip("\n")
+        after = _clip_box(before) if action == "clip_box" else None
+        if after == before:
+            kept.append(original)
+            continue
+        if after is not None:
+            kept.append(after + ("\n" if original.endswith("\n") else ""))
+        fixes.append(dict(image=path.stem, line=line, action="drop_line" if after is None else action,
+                          before=before, after="" if after is None else after))
+    if fixes:
+        with path.open("w", encoding="utf-8", newline="\n") as output:
+            output.writelines(kept)
+    return fixes
+
+
+def _rename_classes(path, classes):
+    try:
+        content = yaml.safe_load(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, yaml.YAMLError):
+        content = {}
+    if not isinstance(content, dict):
+        content = {}
+    before = content.get("names")
+    names = dict(enumerate(classes))
+    if before == names or before == classes:
+        return []
+    content["names"] = names
+    with path.open("w", encoding="utf-8", newline="\n") as output:
+        yaml.safe_dump(content, output, allow_unicode=True, sort_keys=False)
+    return [dict(image="data.yaml", line="", action="rename_classes", before=str(before), after=str(names))]
 
 
 def fix(ds, issues, cfg):
-    # TODO
-    raise NotImplementedError("autofix chưa làm")
+    removals, unlabeled = set(), set()
+    edits = defaultdict(dict)
+    rename = False
+    for issue in issues:
+        if issue.severity != ERROR:
+            continue
+        code = issue.code
+        if code in REMOVE_CODES or code.startswith("DUP_IMAGE_"):
+            removals.add(issue.image)
+        elif code == "MISSING_LABEL_FILE":
+            unlabeled.add(issue.image)
+        elif code == "BAD_CLASS_NAME":
+            rename = True
+        elif issue.line is not None:
+            if code in DROP_CODES:
+                edits[issue.image][issue.line] = "drop_line"
+            elif code == "BOX_OUT_OF_IMAGE":
+                edits[issue.image].setdefault(issue.line, "clip_box")
+
+    fixes = []
+    for stem in sorted(removals):
+        image = ds.image_path(stem)
+        if image is None:
+            continue
+        image.unlink()
+        ds.label_path(stem).unlink(missing_ok=True)
+        fixes.append(dict(image=stem, line="", action="remove_image", before=image.name, after=""))
+
+    if rename:
+        fixes.extend(_rename_classes(ds.yaml_path, cfg["classes"]))
+    for stem in sorted(edits.keys() - removals):
+        fixes.extend(_fix_label(ds.label_path(stem), edits[stem]))
+    for stem in sorted(unlabeled - removals):
+        if not ds.label_path(stem).exists():
+            fixes.append(dict(image=stem, line="", action="needs_label",
+                              before="(không có file)", after="chuyển người gán"))
+    return fixes
